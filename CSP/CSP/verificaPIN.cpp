@@ -19,7 +19,7 @@
 #elif defined(_WIN32)
 	#include <atlbase.h>
 #endif
-#include "sbloccoPIN.h"
+#include "verificaPIN.h"
 
 extern CModuleInfo moduleInfo;
 extern "C" DWORD WINAPI CardAcquireContext(IN PCARD_DATA pCardData, __in DWORD dwFlags);
