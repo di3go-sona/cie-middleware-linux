@@ -86,7 +86,7 @@ target_link_libraries(cieunlockpin ciepki)
 target_link_libraries(ciechangepin ciepki)
 target_link_libraries(cieverifypin ciepki)
 
-install(TARGETS ciepki cieunlockpin ciechangepin cie
+install(TARGETS ciepki cieunlockpin ciechangepin cieverifypin
 	ARCHIVE DESTINATION usr/lib
 	LIBRARY DESTINATION usr/lib
 	RUNTIME DESTINATION usr/bin)
