@@ -4,6 +4,8 @@ target_sources(ciepki
 		"${CMAKE_CURRENT_LIST_DIR}/abilitaCIE.h"
 		"${CMAKE_CURRENT_LIST_DIR}/cambioPIN.cpp"
 		"${CMAKE_CURRENT_LIST_DIR}/cambioPIN.h"
+		"${CMAKE_CURRENT_LIST_DIR}/verificaPIN.cpp"
+		"${CMAKE_CURRENT_LIST_DIR}/verificaPIN.h"
 		"${CMAKE_CURRENT_LIST_DIR}/CSP.cpp"
 		"${CMAKE_CURRENT_LIST_DIR}/ExtAuthKey.cpp"
 		"${CMAKE_CURRENT_LIST_DIR}/IAS.cpp"

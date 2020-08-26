@@ -37,6 +37,7 @@ set( PKCS11_HEADERS ${ROOT_DIR}/PKCS11/linux.h ${ROOT_DIR}/PKCS11/pkcs11f.h ${RO
 set( EXAMPLEPKCS11_SOURCES ${ROOT_DIR}/EsempioPKCS11/EsempioPKCS11.cpp )
 set( CIEUNLOCKPIN_SOURCES ${ROOT_DIR}/Utils/sbloccopin.cpp )
 set( CIECHANGEPIN_SOURCES ${ROOT_DIR}/Utils/cambiopin.cpp )
+set( CIEVERIFYPIN_SOURCES ${ROOT_DIR}/Utils/verificapin.cpp )
 set( UTILS_HEADERS ${ROOT_DIR}/CSP/Util ${ROOT_DIR}/CSP/UI ${ROOT_DIR}/CSP/CSP ${PCSCLITE_INCLUDE} )
 
 #find OpenSSL library
@@ -74,14 +75,18 @@ configure_file(ciepki.pc.in ciepki.pc @ONLY)
 add_executable(EsempioPKCS11 ${EXAMPLEPKCS11_SOURCES} ${PKCS11_HEADERS})
 add_executable(cieunlockpin ${CIEUNLOCKPIN_SOURCES} ${UTILS_HEADERS})
 add_executable(ciechangepin ${CIECHANGEPIN_SOURCES} ${UTILS_HEADERS})
+add_executable(cieverifypin ${CIEVERIFYPIN_SOURCES} ${UTILS_HEADERS})
+
 target_include_directories(cieunlockpin PRIVATE ${UTILS_HEADERS})
 target_include_directories(ciechangepin PRIVATE ${UTILS_HEADERS})
+target_include_directories(cieverifypin PRIVATE ${UTILS_HEADERS})
 target_link_libraries(ciepki ${CMAKE_DL_LIBS} ${OPENSSL_LIBRARIES} OpenSSL::Crypto ciecache Threads::Threads)
 target_link_libraries(EsempioPKCS11 ${CMAKE_DL_LIBS} ${OPENSSL_LIBRARIES} OpenSSL::Crypto Threads::Threads)
 target_link_libraries(cieunlockpin ciepki)
 target_link_libraries(ciechangepin ciepki)
+target_link_libraries(cieverifypin ciepki)
 
-install(TARGETS ciepki cieunlockpin ciechangepin
+install(TARGETS ciepki cieunlockpin ciechangepin cie
 	ARCHIVE DESTINATION usr/lib
 	LIBRARY DESTINATION usr/lib
 	RUNTIME DESTINATION usr/bin)
